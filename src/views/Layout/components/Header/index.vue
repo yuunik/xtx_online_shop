@@ -1,4 +1,18 @@
-<script setup></script>
+<script setup lang="ts">
+import { getCategoryListAPI } from '@/apis/layout'
+import { onMounted, ref } from 'vue'
+import type { CategoryItem } from '@/types/layout.d.ts'
+
+// 分类列表
+const categoryList = ref<CategoryItem[]>([])
+// 组件挂载完成后执行
+onMounted(async () => {
+  // 调用接口, 获取分类列表
+  const result = await getCategoryListAPI()
+  // 获取分类列表
+  categoryList.value = result.data.result
+})
+</script>
 
 <template>
   <header class="app-header">
@@ -10,9 +24,9 @@
         <li class="home">
           <RouterLink to="/">首页</RouterLink>
         </li>
-        <li><RouterLink to="/">居家</RouterLink></li>
-        <li><RouterLink to="/">美食</RouterLink></li>
-        <li><RouterLink to="/">服饰</RouterLink></li>
+        <li v-for="category in categoryList" :key="category.id">
+          <RouterLink to="/">{ category.name }</RouterLink>
+        </li>
       </ul>
       <div class="search">
         <i class="iconfont icon-search"></i>

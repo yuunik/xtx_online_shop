@@ -23,8 +23,7 @@ request.interceptors.request.use(
 // 响应拦截器
 request.interceptors.response.use(
   (response) => {
-    // 拆除一层封装
-    return response.data
+    return response
   },
   (error) => {
     return Promise.reject(error)
