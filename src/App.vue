@@ -2,6 +2,7 @@
 import useCounterStore from '@/store/counter'
 import { storeToRefs } from 'pinia'
 import { onMounted } from 'vue'
+import { RouterLink } from 'vue-router'
 
 const counterStore = useCounterStore()
 // 解构状态
@@ -29,6 +30,12 @@ onMounted(() => {
         {{ channel.name }}
       </li>
     </ul>
+    <!--  路由链接  -->
+    <RouterLink to="/">首页</RouterLink>
+    <RouterLink to="/login">登录页</RouterLink>
+
+    <!--  一级路由出口  -->
+    <RouterView></RouterView>
   </main>
 </template>
 
