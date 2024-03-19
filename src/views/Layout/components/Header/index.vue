@@ -25,7 +25,7 @@ onMounted(async () => {
           <RouterLink to="/">首页</RouterLink>
         </li>
         <li v-for="category in categoryList" :key="category.id">
-          <RouterLink to="/">{ category.name }</RouterLink>
+          <RouterLink to="/">{{ category.name }}</RouterLink>
         </li>
       </ul>
       <div class="search">
