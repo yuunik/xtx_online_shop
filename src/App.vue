@@ -30,6 +30,8 @@ onMounted(() => {
         {{ channel.name }}
       </li>
     </ul>
+
+    <div class="test">测试文字</div>
     <!--  路由链接  -->
     <RouterLink to="/">首页</RouterLink>
     <RouterLink to="/login">登录页</RouterLink>
@@ -39,4 +41,8 @@ onMounted(() => {
   </main>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+.test {
+  color: $success-color;
+}
+</style>
