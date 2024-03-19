@@ -18,31 +18,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <header>
-    <h1>The Application</h1>
-  </header>
-
-  <main>
-    当前和为: {{ count }}
-    <el-button @click="increment" type="primary">+ 1</el-button>
-    <ul>
-      <li v-for="channel in channelList" :key="channel.id">
-        {{ channel.name }}
-      </li>
-    </ul>
-
-    <div class="test">测试文字</div>
-    <!--  路由链接  -->
-    <RouterLink to="/">首页</RouterLink>
-    <RouterLink to="/login">登录页</RouterLink>
-
-    <!--  一级路由出口  -->
-    <RouterView></RouterView>
-  </main>
+  <!--  一级路由出口  -->
+  <RouterView></RouterView>
 </template>
 
 <style scoped lang="scss">
 .test {
-  color: $success-color;
+  color: $successColor;
 }
 </style>
