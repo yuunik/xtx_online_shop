@@ -1,0 +1,38 @@
+<script setup lang="ts">
+import useCounterStore from "@/store/counter";
+import { storeToRefs } from "pinia";
+import { onMounted } from "vue";
+
+const counterStore = useCounterStore();
+// 解构状态
+const { count, channelList } = storeToRefs(counterStore)
+// 解构方法
+const { increment, getChannelList } = counterStore
+
+// 组件挂载时调用
+onMounted(() => {
+  // 获取频道列表
+  getChannelList()
+})
+
+</script>
+
+<template>
+  <header>
+    <h1>The Application</h1>
+  </header>
+
+  <main>
+    当前和为: {{ count }}
+    <button @click="increment">+ 1</button>
+    <ul>
+      <li v-for="channel in channelList" :key="channel.id">
+        {{ channel.name }}
+      </li>
+    </ul>
+  </main>
+</template>
+
+<style scoped>
+
+</style>
