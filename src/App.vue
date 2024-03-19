@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import useCounterStore from "@/store/counter";
-import { storeToRefs } from "pinia";
-import { onMounted } from "vue";
+import useCounterStore from '@/store/counter'
+import { storeToRefs } from 'pinia'
+import { onMounted } from 'vue'
 
-const counterStore = useCounterStore();
+const counterStore = useCounterStore()
 // 解构状态
 const { count, channelList } = storeToRefs(counterStore)
 // 解构方法
@@ -14,7 +14,6 @@ onMounted(() => {
   // 获取频道列表
   getChannelList()
 })
-
 </script>
 
 <template>
@@ -24,7 +23,7 @@ onMounted(() => {
 
   <main>
     当前和为: {{ count }}
-    <button @click="increment">+ 1</button>
+    <el-button @click="increment" type="primary">+ 1</el-button>
     <ul>
       <li v-for="channel in channelList" :key="channel.id">
         {{ channel.name }}
@@ -33,6 +32,4 @@ onMounted(() => {
   </main>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
