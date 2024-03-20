@@ -25,7 +25,7 @@ const { categoryList } = storeToRefs(categoryStore)
           <ul>
             <li v-for="goods in category.goods" :key="goods.id">
               <RouterLink to="/">
-                <img :alt="goods.picture" />
+                <img :src="goods.picture" alt="商品" />
                 <div class="info">
                   <p class="name ellipsis-2">{{ goods.name }}</p>
                   <p class="desc ellipsis">{{ goods.desc }}</p>
