@@ -1,17 +1,10 @@
 <script setup lang="ts">
-import { getCategoryListAPI } from '@/apis/layout'
-import { onMounted, ref } from 'vue'
-import type { CategoryItem } from '@/types/layout.d.ts'
+import useCategoryStore from '@/store/category'
+import { storeToRefs } from 'pinia'
 
-// 分类列表
-const categoryList = ref<CategoryItem[]>([])
-// 组件挂载完成后执行
-onMounted(async () => {
-  // 调用接口, 获取分类列表
-  const result = await getCategoryListAPI()
-  // 获取分类列表
-  categoryList.value = result.data.result
-})
+// 获取分类的状态管理库
+const categoryStore = useCategoryStore()
+const { categoryList } = storeToRefs(categoryStore)
 </script>
 
 <template>
