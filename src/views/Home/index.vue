@@ -11,8 +11,8 @@ import Product from './components/Product/index.vue'
     <!-- 左侧分类 -->
     <Category />
     <!-- 轮播图 -->
+    <Banner />
   </div>
-  <Banner />
   <!-- 新鲜好物 -->
   <New />
   <!-- 人气推荐 -->
